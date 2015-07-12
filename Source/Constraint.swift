@@ -68,6 +68,8 @@ public class Constraint {
 */
 internal class ConcreteConstraint: Constraint {
     
+    internal var location : SourceLocation?
+    
     internal override func updateOffset(amount: Float) -> Void {
         self.constant = amount
     }
@@ -185,13 +187,14 @@ internal class ConcreteConstraint: Constraint {
     
     private var installInfo: ConcreteConstraintInstallInfo? = nil
     
-    internal init(fromItem: ConstraintItem, toItem: ConstraintItem, relation: ConstraintRelation, constant: Any, multiplier: Float, priority: Float) {
+    internal init(fromItem: ConstraintItem, toItem: ConstraintItem, relation: ConstraintRelation, constant: Any, multiplier: Float, priority: Float, location : SourceLocation?) {
         self.fromItem = fromItem
         self.toItem = toItem
         self.relation = relation
         self.constant = constant
         self.multiplier = multiplier
         self.priority = priority
+        self.location = location
     }
     
     internal func installOnView(updateExisting updateExisting: Bool = false, file: String? = nil, line: UInt? = nil) -> [LayoutConstraint] {
