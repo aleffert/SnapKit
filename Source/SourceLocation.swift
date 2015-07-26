@@ -21,7 +21,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-struct SourceLocation {
-    let file : String
-    let line : UInt
+public struct SourceLocation {
+    public let file : String
+    public let line : UInt
 }

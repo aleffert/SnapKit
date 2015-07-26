@@ -32,7 +32,7 @@ import AppKit
 */
 public class LayoutConstraint: NSLayoutConstraint {
     
-    internal var snp_constraint: Constraint? = nil
+    public var snp_constraint: Constraint? = nil
     
 }
 

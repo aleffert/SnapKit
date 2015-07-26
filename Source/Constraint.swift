@@ -60,6 +60,7 @@ public class Constraint {
     
     internal var makerFile: String = "Unknown"
     internal var makerLine: UInt = 0
+    public var location : SourceLocation?
     
 }
 
@@ -67,8 +68,6 @@ public class Constraint {
     Used internally to implement a ConcreteConstraint
 */
 internal class ConcreteConstraint: Constraint {
-    
-    internal var location : SourceLocation?
     
     internal override func updateOffset(amount: Float) -> Void {
         self.constant = amount
@@ -194,6 +193,7 @@ internal class ConcreteConstraint: Constraint {
         self.constant = constant
         self.multiplier = multiplier
         self.priority = priority
+        super.init()
         self.location = location
     }
     
