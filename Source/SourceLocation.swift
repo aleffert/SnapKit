@@ -22,6 +22,24 @@
 //  THE SOFTWARE.
 
 public struct SourceLocation {
+    typealias SerializableRepresentation = [String:AnyObject]
     public let file : String
     public let line : UInt
+    
+    init(file : String, line : UInt) {
+        self.file = file
+        self.line = line
+    }
+    
+    init(serializedRepresentation : SerializableRepresentation) {
+        self.file = serializedRepresentation["file"] as? String ?? ""
+        self.line = serializedRepresentation["line"] as? UInt ?? 0
+    }
+    
+    var serializedRepresentation : SerializableRepresentation {
+        return [
+            "file": self.file,
+            "line" : self.line
+        ]
+    }
 }
